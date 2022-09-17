@@ -23,35 +23,36 @@ public class Fraction {
     public Fraction(int tuso, int mauso){
         this.tuso=tuso;
         this.mauso=mauso;
-        result = (float)tuso/(float)mauso;
+        this.result = (float)tuso/(float)mauso;
     }
     public void print(){
      System.out.println("In phân số");
-     System.out.println(tuso+"/"+mauso+"="+result);
+     System.out.println(this.tuso+"/"+this.mauso+"="+this.result);
     }
     public int ucln(int tuso, int mauso){
       this.tuso=Math.abs(tuso);
       this.mauso=Math.abs(mauso);
-      if(tuso==0||mauso==0) {
-          return tuso+mauso;
+      if(this.tuso==0||this.mauso==0) {
+          return this.tuso+this.mauso;
       }
-      while(tuso!=mauso){
-          if(tuso>mauso){
-              tuso=tuso-mauso;
+      while(this.tuso!=this.mauso){
+          if(this.tuso>this.mauso){
+              this.tuso=this.tuso-this.mauso;
           }else{
-              mauso=mauso-tuso;
+              this.mauso=this.mauso-this.tuso;
           }
       }
-      return tuso;
+      return this.tuso;
     }
     public void rutgon(){
         System.out.println("Rút gọn phân số");
-        System.out.println(tuso+"/"+mauso+"="+(tuso/ucln(tuso,mauso)+"/"+(mauso/ucln(tuso,mauso))));
+        System.out.println(this.tuso+"/"+this.mauso+"="+(this.tuso/this.ucln(this.tuso,this.mauso)+"/"+(this.mauso/this.ucln(this.tuso,this.mauso))));
     }
 
     public void nghichdao(){
         System.out.println("Nghịch đảo phân số");
-        System.out.println(mauso+"/"+tuso+"="+(mauso/ucln(tuso,mauso))+"/"+(tuso/ucln(tuso,mauso)));
+        System.out.println(this.mauso+"/"+this.tuso+"="+(this.mauso/this.ucln(this.tuso,this.mauso))+"/"+(this.tuso/this.ucln(this.tuso,this.mauso)));
     }
+
 
 }
