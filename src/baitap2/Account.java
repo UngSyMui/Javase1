@@ -37,13 +37,13 @@ public class Account {
         this.balance = balance;
     }
     public void print(){
-        System.out.println("Số dư hiện tại:" +this.balance);
+        System.out.println("Số dư tài khoản: "+this.name+" là " +this.balance);
     }
 
     public void credit(int amount){
         if(amount>0){
            setBalance(this.balance+amount);
-           System.out.println("Nhận được : "+amount+" Số dư hiện tại : "+balance);
+           System.out.println("Tài khoản : "+this.name+"Nhận được : "+amount+" Số dư hiện tại : "+balance);
         }
     }
     public void debit(int amount){
@@ -54,13 +54,15 @@ public class Account {
             System.out.println("Thanh toán không thành công");
         }
     }
-    public Account tranferTo(Account B, int amount){
+    public void tranferTo(Account B, int amount){
         if(this.balance>=amount){
-           setBalance(this.balance-amount);
-           B.setBalance(B.balance+amount);
-           return B;
+            setBalance(this.balance-amount);
+            B.setBalance(B.getBalance()+amount);
+            System.out.println("Giao dịch thành công");
+        }else{
+            System.out.println("Lỗi chuyển tiền không thành công");
         }
-        return B;
-    }
+   }
+
 
 }
