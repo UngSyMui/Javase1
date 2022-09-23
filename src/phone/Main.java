@@ -15,18 +15,35 @@ public class Main {
         cc.add("22111");cc.add("555666");cc.add("44443333");
         dd.add("abcd");dd.add("22aabb");dd.add("888999");
 
-        PhoneNumber pa = new PhoneNumber("aaaaa",aaa);
-        PhoneNumber pb = new PhoneNumber("bbbbbb",bb);
-        PhoneNumber pc = new PhoneNumber("ccccc",cc);
-        PhoneNumber pd = new PhoneNumber("dddddd",dd);
-        PhoneNumber pe = new PhoneNumber("aaaaa",ee);
-        ArrayList<PhoneNumber> phoneList = new ArrayList<>();
-        phoneList.add(pa);
-        phoneList.add(pb);
-        phoneList.add(pc);
-        phoneList.add(pd);
+        PhoneNumber pa = new PhoneNumber("aaaaa ggg",aaa);
+        PhoneNumber pb = new PhoneNumber("bbbbbb hhh",bb);
+        PhoneNumber pc = new PhoneNumber("ccccc eee",cc);
+        PhoneNumber pd = new PhoneNumber("dddddd aaa",dd);
+        PhoneNumber pe = new PhoneNumber("aaaaa bbbb",ee);
+        ArrayList<PhoneNumber> gggggg = new ArrayList<>();
+        gggggg.add(pa);
+        gggggg.add(pb);
 
-        System.out.println(phoneList.get(0).toString());
+        PhoneBook phoneBook=new PhoneBook(gggggg);
+        phoneBook.insertPhone(pc);
+        System.out.println(phoneBook.phoneList.size());
+        phoneBook.insertPhone(pd);
+        System.out.println(phoneBook.phoneList.size());
+//        phoneBook.insertPhone(pe);
+        System.out.println(phoneBook.phoneList.size());
+        phoneBook.removePhone("aaaaa");
+        System.out.println(phoneBook.phoneList.size());
+        phoneBook.searchPhone("ccccc");
+        phoneBook.searchPhone("hhhhh");
+        phoneBook.sort();
+        for(int i=0;i<phoneBook.phoneList.size();i++){
+            System.out.println(phoneBook.phoneList.get(i).toString());
+        }
+
+
+
+
+
 
 
 

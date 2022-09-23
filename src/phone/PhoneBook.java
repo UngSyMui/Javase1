@@ -51,9 +51,9 @@ public class PhoneBook extends Phone {
 
     @Override
     public void removePhone(String name) {
-        for(PhoneNumber s:phoneList){
-            if(s.getName().contains(name)){
-              phoneList.remove(s);
+        for(int i=0;i<phoneList.size();i++){
+            if(phoneList.get(i).name.contains(name)){
+              phoneList.remove(phoneList.get(i));
             }
         }
 
@@ -61,9 +61,9 @@ public class PhoneBook extends Phone {
 
     @Override
     public void updatePhone(PhoneNumber o) {
-        for(PhoneNumber s:phoneList){
-            if(s.getName().contains(o.getName())){
-                s.phoneNumber = o.phoneNumber;
+        for(int i=0;i<phoneList.size();i++){
+            if(phoneList.get(i).name.contains(o.name)){
+                phoneList.get(i).phoneNumber = o.phoneNumber;
             }
         }
 
@@ -71,9 +71,9 @@ public class PhoneBook extends Phone {
 
     @Override
     public void searchPhone(String name) {
-        for(PhoneNumber s:phoneList){
-            if(s.getName().contains(name)){
-                System.out.println("Tìm thấy PhoneNumber"+s.toString());
+        for(int i=0;i<phoneList.size();i++){
+            if(phoneList.get(i).name.contains(name)){
+                System.out.println("Tìm thấy PhoneNumber"+phoneList.get(i).toString());
                 return;
             }
         }
