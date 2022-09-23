@@ -30,15 +30,22 @@ public class PhoneBook extends Phone {
     @Override
     public void insertPhone(PhoneNumber o) {
         int k=0;
-        for(PhoneNumber s:phoneList){
-            if(s.getName().contains(o.getName())){
-              if(!s.phoneNumber.contains(o.phoneNumber)){
-                  s.phoneNumber = o.phoneNumber;
+        for(int i=0;i<phoneList.size();i++){
+            if(phoneList.get(i).name.equals(o.name)){
+                for(int j=0;j<phoneList.get(i).phoneNumber.size();j++){
+                    for(int m=0;m<o.phoneNumber.size();m++){
+                        if(!phoneList.get(i).phoneNumber.get(j).equals(o.phoneNumber.get(m))){
+                            phoneList.get(i).phoneNumber.add(o.phoneNumber.get(m));
+                        }
+                    }
                 }
                 k++;
+                return;
             }
         }
-        if(k==0) phoneList.add(o);
+        if(k==0){
+            phoneList.add(o);
+        }
 
     }
 
