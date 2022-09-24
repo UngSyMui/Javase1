@@ -6,6 +6,7 @@ public class PhoneBook extends Phone {
     public ArrayList<PhoneNumber> phoneList;
 
     public PhoneBook() {
+        this.phoneList = new ArrayList<PhoneNumber>();
     }
 
     public PhoneBook(ArrayList<PhoneNumber> phoneList) {
@@ -29,24 +30,23 @@ public class PhoneBook extends Phone {
 
     @Override
     public void insertPhone(PhoneNumber o) {
-        int k=0;
+
         for(int i=0;i<phoneList.size();i++){
             if(phoneList.get(i).name.equalsIgnoreCase(o.name)){
-                for(int j=0;j<phoneList.get(i).phoneNumber.size();j++){
-                    for(int m=0;m<o.phoneNumber.size();m++){
-                        if(!phoneList.get(i).phoneNumber.get(j).equalsIgnoreCase(o.phoneNumber.get(m))){
-                            phoneList.get(i).phoneNumber.add(o.phoneNumber.get(m));
+                for(int j=0;j<o.phoneNumber.size();j++){
+                    phoneList.get(i).phoneNumber.add(o.phoneNumber.get(j));
+                }
+                for(int m=0;m<phoneList.get(i).phoneNumber.size()-1;m++){
+                    for(int n=m+1;n<phoneList.get(i).phoneNumber.size();n++){
+                        if(phoneList.get(i).phoneNumber.get(m).equalsIgnoreCase(phoneList.get(i).phoneNumber.get(n))){
+                            phoneList.get(i).phoneNumber.remove(n);
                         }
                     }
                 }
-                k++;
                 return;
             }
         }
-        if(k==0){
-            phoneList.add(o);
-        }
-
+        phoneList.add(o);
     }
 
     @Override

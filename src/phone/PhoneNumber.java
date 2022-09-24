@@ -3,7 +3,7 @@ package phone;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class PhoneNumber {
+public class PhoneNumber implements Comparable<PhoneNumber> {
     public String name;
     public ArrayList<String> phoneNumber;
 

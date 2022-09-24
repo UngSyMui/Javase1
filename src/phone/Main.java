@@ -19,21 +19,20 @@ public class Main {
         PhoneNumber pb = new PhoneNumber("bbbbbb hhh",bb);
         PhoneNumber pc = new PhoneNumber("ccccc eee",cc);
         PhoneNumber pd = new PhoneNumber("dddddd aaa",dd);
-        PhoneNumber pe = new PhoneNumber("aaaaa bbbb",ee);
-        ArrayList<PhoneNumber> gggggg = new ArrayList<>();
-        gggggg.add(pa);
-        gggggg.add(pb);
+        PhoneNumber pe = new PhoneNumber("aaaaa ggg",ee);
 
-        PhoneBook phoneBook=new PhoneBook(gggggg);
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.insertPhone(pa);
+        phoneBook.insertPhone(pb);
         phoneBook.insertPhone(pc);
         System.out.println(phoneBook.phoneList.size());
         phoneBook.insertPhone(pd);
         System.out.println(phoneBook.phoneList.size());
-//        phoneBook.insertPhone(pe);
+        phoneBook.insertPhone(pe);
         System.out.println(phoneBook.phoneList.size());
-        phoneBook.removePhone("aaaaa");
+        //phoneBook.removePhone("aaaaa GGG");
         System.out.println(phoneBook.phoneList.size());
-        phoneBook.searchPhone("ccccc");
+        phoneBook.searchPhone("ccccc eee");
         phoneBook.searchPhone("hhhhh");
         phoneBook.sort();
         for(int i=0;i<phoneBook.phoneList.size();i++){
