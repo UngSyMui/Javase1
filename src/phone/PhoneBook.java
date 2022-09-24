@@ -31,10 +31,10 @@ public class PhoneBook extends Phone {
     public void insertPhone(PhoneNumber o) {
         int k=0;
         for(int i=0;i<phoneList.size();i++){
-            if(phoneList.get(i).name.contains(o.name)){
+            if(phoneList.get(i).name.equalsIgnoreCase(o.name)){
                 for(int j=0;j<phoneList.get(i).phoneNumber.size();j++){
                     for(int m=0;m<o.phoneNumber.size();m++){
-                        if(!phoneList.get(i).phoneNumber.get(j).contains(o.phoneNumber.get(m))){
+                        if(!phoneList.get(i).phoneNumber.get(j).equalsIgnoreCase(o.phoneNumber.get(m))){
                             phoneList.get(i).phoneNumber.add(o.phoneNumber.get(m));
                         }
                     }
@@ -52,7 +52,7 @@ public class PhoneBook extends Phone {
     @Override
     public void removePhone(String name) {
         for(int i=0;i<phoneList.size();i++){
-            if(phoneList.get(i).name.contains(name)){
+            if(phoneList.get(i).name.equalsIgnoreCase(name)){
               phoneList.remove(phoneList.get(i));
             }
         }
@@ -62,7 +62,7 @@ public class PhoneBook extends Phone {
     @Override
     public void updatePhone(PhoneNumber o) {
         for(int i=0;i<phoneList.size();i++){
-            if(phoneList.get(i).name.contains(o.name)){
+            if(phoneList.get(i).name.equalsIgnoreCase(o.name)){
                 phoneList.get(i).phoneNumber = o.phoneNumber;
             }
         }
@@ -72,7 +72,7 @@ public class PhoneBook extends Phone {
     @Override
     public void searchPhone(String name) {
         for(int i=0;i<phoneList.size();i++){
-            if(phoneList.get(i).name.contains(name)){
+            if(phoneList.get(i).name.equalsIgnoreCase(name)){
                 System.out.println("Tìm thấy PhoneNumber"+phoneList.get(i).toString());
                 return;
             }
