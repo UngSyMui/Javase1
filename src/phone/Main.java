@@ -4,41 +4,40 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<String> aaa= new ArrayList<>();
-        ArrayList<String> bb= new ArrayList<>();
-        ArrayList<String> cc= new ArrayList<>();
-        ArrayList<String> dd= new ArrayList<>();
-        ArrayList<String> ee= new ArrayList<>();
-        ee.add("1234");ee.add("2234");ee.add("6666666");
-        aaa.add("1234");aaa.add("2234");aaa.add("3333");aaa.add("4444");
-        bb.add("1234");bb.add("3456");bb.add("7777");bb.add("555555");bb.add("666666");
-        cc.add("22111");cc.add("555666");cc.add("44443333");
-        dd.add("abcd");dd.add("22aabb");dd.add("888999");
-
-        PhoneNumber pa = new PhoneNumber("aaaaa ggg",aaa);
-        PhoneNumber pb = new PhoneNumber("bbbbbb hhh",bb);
-        PhoneNumber pc = new PhoneNumber("ccccc eee",cc);
-        PhoneNumber pd = new PhoneNumber("dddddd aaa",dd);
-        PhoneNumber pe = new PhoneNumber("aaaaa ggg",ee);
-
+        ArrayList<String> aa = new ArrayList<>();
+        ArrayList<String> bb = new ArrayList<>();
+        ArrayList<String> cc = new ArrayList<>();
+        ArrayList<String> dd = new ArrayList<>();
+        ArrayList<String> ee = new ArrayList<>();
+        aa.add("1234");aa.add("2234");aa.add("3333");aa.add("4444");
+        bb.add("1111");bb.add("2222");bb.add("5555");
+        cc.add("2345");cc.add("7789");cc.add("1122");cc.add("6677");
+        dd.add("1010");dd.add("2010");dd.add("3010");dd.add("4010");
+        ee.add("1234");ee.add("6565");ee.add("8888");
+        PhoneNumber pa = new PhoneNumber("aaa gggg",aa);
+        PhoneNumber pb = new PhoneNumber("bbbb hhhh",bb);
+        PhoneNumber pc = new PhoneNumber("ccc bbbb",cc);
+        PhoneNumber pd = new PhoneNumber("hhh cccc",dd);
+        PhoneNumber pe = new PhoneNumber("aaa gggg",ee);
         PhoneBook phoneBook = new PhoneBook();
         phoneBook.insertPhone(pa);
         phoneBook.insertPhone(pb);
         phoneBook.insertPhone(pc);
-        System.out.println(phoneBook.phoneList.size());
-        phoneBook.insertPhone(pd);
-        System.out.println(phoneBook.phoneList.size());
-        phoneBook.insertPhone(pe);
-        System.out.println(phoneBook.phoneList.size());
-        //phoneBook.removePhone("aaaaa GGG");
-        System.out.println(phoneBook.phoneList.size());
-        phoneBook.searchPhone("ccccc eee");
-        phoneBook.searchPhone("hhhhh");
-        phoneBook.sort();
-        for(int i=0;i<phoneBook.phoneList.size();i++){
-            System.out.println(phoneBook.phoneList.get(i).toString());
-        }
+        System.out.println("Số lượng phần tử: " +phoneBook.phoneList.size());
 
+        phoneBook.insertPhone(pd);
+        System.out.println("Số lượng phần tử: " +phoneBook.phoneList.size());
+
+        phoneBook.insertPhone(pe);
+        System.out.println("Số lượng phần tử: " +phoneBook.phoneList.size());
+        System.out.println(phoneBook.phoneList.toString());
+        phoneBook.sort();
+        System.out.println(phoneBook.phoneList.toString());
+        phoneBook.removePhone("bbbb");
+
+        System.out.println("Số lượng phần tử: " +phoneBook.phoneList.size());
+        System.out.println(phoneBook.phoneList.toString());
+        phoneBook.searchPhone("bbbb hhhh");
 
 
 
