@@ -1,9 +1,11 @@
 package phone;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class PhoneBook extends Phone {
     public ArrayList<PhoneNumber> phoneList;
+
 
     public PhoneBook() {
         this.phoneList = new ArrayList<PhoneNumber>();
@@ -12,6 +14,8 @@ public class PhoneBook extends Phone {
     public PhoneBook(ArrayList<PhoneNumber> phoneList) {
         this.phoneList = phoneList;
     }
+
+
 
     public ArrayList<PhoneNumber> getPhoneList() {
         return phoneList;
@@ -22,6 +26,14 @@ public class PhoneBook extends Phone {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PhoneBook)) return false;
+        PhoneBook phoneBook = (PhoneBook) o;
+        return getPhoneList().equals(phoneBook.getPhoneList());
+    }
+
+    @Override
     public String toString() {
         return "PhoneBook{" +
                 "phoneList=" + phoneList +
@@ -29,19 +41,35 @@ public class PhoneBook extends Phone {
     }
 
     @Override
-    public void insertPhone(PhoneNumber o) {
+    public int hashCode() {
+        return Objects.hash(getPhoneList());
+    }
 
+    @Override
+    public void insertPhone(PhoneNumber o) {
         for(int i=0;i<phoneList.size();i++){
             if(phoneList.get(i).name.equalsIgnoreCase(o.name)){
-                for(int j=0;j<o.phoneNumber.size();j++){
-                    phoneList.get(i).phoneNumber.add(o.phoneNumber.get(j));
-                }
-                for(int m=0;m<phoneList.get(i).phoneNumber.size()-1;m++){
-                    for(int n=m+1;n<phoneList.get(i).phoneNumber.size();n++){
-                        if(phoneList.get(i).phoneNumber.get(m).equalsIgnoreCase(phoneList.get(i).phoneNumber.get(n))){
-                            phoneList.get(i).phoneNumber.remove(n);
+//                for(int j=0;j<o.phoneNumber.size();j++){
+//                    phoneList.get(i).phoneNumber.add(o.phoneNumber.get(j));
+//                }
+//                for(int m=0;m<phoneList.get(i).phoneNumber.size()-1;m++){
+//                    for(int n=m+1;n<phoneList.get(i).phoneNumber.size();n++){
+//                        if(phoneList.get(i).phoneNumber.get(m).equalsIgnoreCase(phoneList.get(i).phoneNumber.get(n))){
+//                            phoneList.get(i).phoneNumber.remove(phoneList.get(i).phoneNumber.get(n));
+//                        }
+//                    }
+//                }
+                for(int h=0;h<o.phoneNumber.size();h++){
+                    int k=0;
+                    for(int g =0;g<phoneList.get(i).phoneNumber.size();g++){
+                        if(o.phoneNumber.get(h).equals(phoneList.get(i).phoneNumber.get(g))){
+                            k++;
                         }
                     }
+                    if(k==0){
+                        phoneList.get(i).phoneNumber.add(o.phoneNumber.get(h));
+                    }
+
                 }
                 return;
             }
@@ -53,7 +81,7 @@ public class PhoneBook extends Phone {
     public void removePhone(String name) {
         for(int i=0;i<phoneList.size();i++){
             if(phoneList.get(i).name.equalsIgnoreCase(name)){
-              phoneList.remove(phoneList.get(i));
+                phoneList.remove(i);
             }
         }
 
@@ -73,12 +101,11 @@ public class PhoneBook extends Phone {
     public void searchPhone(String name) {
         for(int i=0;i<phoneList.size();i++){
             if(phoneList.get(i).name.equalsIgnoreCase(name)){
-                System.out.println("Tìm thấy PhoneNumber"+phoneList.get(i).toString());
+                System.out.println("Tìm thấy: "+phoneList.get(i).toString());
                 return;
             }
         }
-        System.out.println("Không tìm thấy PhoneNumber");
-
+        System.out.println("Không tìm thấy");
     }
 
     @Override
@@ -90,5 +117,6 @@ public class PhoneBook extends Phone {
                 }
             }
         }
+
     }
 }

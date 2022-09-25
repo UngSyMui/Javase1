@@ -32,15 +32,6 @@ public class PhoneNumber implements Comparable<PhoneNumber> {
     }
 
     @Override
-    public String toString() {
-        return "PhoneNumber{" +
-                "name='" + name + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                '}';
-    }
-
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof PhoneNumber)) return false;
@@ -52,26 +43,35 @@ public class PhoneNumber implements Comparable<PhoneNumber> {
     public int hashCode() {
         return Objects.hash(getName(), getPhoneNumber());
     }
+
+    @Override
+    public String toString() {
+        return "PhoneNumber{" +
+                "name='" + name + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                '}';
+    }
+
     public String getTen(){
         String name = this.name.trim();
-        if(name.indexOf(" ")>=0){
+        if(name.indexOf(" ")>0){
             int vt = name.lastIndexOf(" ");
             return name.substring(vt+1);
-        }else{
-            return name;
         }
+        return name;
     }
     public int compareTo(PhoneNumber o){
-        String tenThis=this.getTen();
-        String teno= o.getTen();
-        return tenThis.compareTo(teno);
+        String tenThis= this.getTen();
+        String tenO = o.getTen();
+        return tenThis.compareTo(tenO);
     }
+
     public void swap(PhoneNumber o){
-        String tmp = o.name;
-        o.name = this.name;
-        this.name = tmp;
-       ArrayList<String> temp = o.phoneNumber;
-       o.phoneNumber = this.phoneNumber;
-       this.phoneNumber = temp;
+        String tmp = this.name;
+        this.name =o.name;
+        o.name = tmp;
+        ArrayList<String> temp = this.phoneNumber;
+        this.phoneNumber =o.phoneNumber;
+        o.phoneNumber = temp;
     }
 }
