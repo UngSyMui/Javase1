@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField layoutX="226.0" layoutY="22.0" promptText="Họ và tên" />
+      <TextField layoutX="226.0" layoutY="62.0" promptText="Email" />
+      <TextField layoutX="226.0" layoutY="99.0" promptText="Tuổi" />
+      <TextField layoutX="226.0" layoutY="140.0" promptText="Địa chỉ" />
+      <Button layoutX="321.0" layoutY="175.0" mnemonicParsing="false" text="Submit" />
+      <TextArea layoutX="210.0" layoutY="216.0" prefHeight="160.0" prefWidth="200.0" promptText="Các thông tin vừa nhập"/>
+   </children>
+</Pane>
