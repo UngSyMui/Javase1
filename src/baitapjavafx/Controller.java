@@ -27,7 +27,7 @@ public class Controller {
             int k = 0;
             for (PhoneNumber p : phoneBook) {
                 if (p.getName().equals(name)) {
-                    p.setPhoneNumber(phone);
+                    p.setPhone(phone);
                     k++;
                 }
             }

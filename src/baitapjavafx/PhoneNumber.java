@@ -2,14 +2,14 @@ package baitapjavafx;
 
 public class PhoneNumber {
     public String name;
-    public String phoneNumber;
+    public String phone;
 
     public PhoneNumber() {
     }
 
-    public PhoneNumber(String name, String phoneNumber) {
+    public PhoneNumber(String name, String phone) {
         this.name = name;
-        this.phoneNumber = phoneNumber;
+        this.phone = phone;
     }
 
     public String getName() {
@@ -20,16 +20,16 @@ public class PhoneNumber {
         this.name = name;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     @Override
     public String toString() {
-        return "Name: "+name+"-"+"Phone: "+phoneNumber+"\n";
+        return "Name: "+name+"-"+"Phone: "+phone+"\n";
     }
 }
