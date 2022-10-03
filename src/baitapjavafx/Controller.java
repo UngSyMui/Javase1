@@ -24,17 +24,15 @@ public class Controller {
         String name = txtName.getText();
         String phone = txtPhoneNumber.getText();
         if (!name.isEmpty() && !phone.isEmpty()) {
-            int k = 0;
             for (PhoneNumber p : phoneBook) {
                 if (p.getName().equals(name)) {
                     p.setPhone(phone);
-                    k++;
+                    return;
                 }
             }
-            if (k == 0) {
                 PhoneNumber pn = new PhoneNumber(name, phone);
                 phoneBook.add(pn);
-            }
+
         }
        phoneList.setText(phoneListToString());
     }
